@@ -43,3 +43,15 @@ This work is published under [MIT][mit] License.
 [use-template]: https://github.com/cotes2020/chirpy-starter/generate
 [CD]: https://en.wikipedia.org/wiki/Continuous_deployment
 [mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE
+
+
+Jekyll On MAC
+
+brew install ruby
+which ruby
+brew install protobuf
+gem install jekyll
+
+Commands:
+- bundle: To install dependencies
+- bundle exec jekyll s --> to run project locally
