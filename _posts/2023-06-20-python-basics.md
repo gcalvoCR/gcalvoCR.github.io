@@ -22,7 +22,7 @@ A virtual environment in Python is a self-contained space or container that allo
 
 When you work on different projects or use different libraries in Python, it's possible that those projects or libraries may have conflicting dependencies or versions. A virtual environment helps solve this problem by creating a separate environment for each project, with its own set of dependencies and Python packages.
 
-Type the following commands to create a new virtual environment and activate it
+Type the following commands to create a new virtual environment, activate it and install the dependencies:
 
 ```sh
 # Create virtual environment
@@ -35,5 +35,17 @@ pip install -r requirements.txt
 
 ## Dependencies
 
-In progress
+They are usually stored in a `requirements.txt` file.
+
+In order to create it from the dependencies you have installed, type:
+```sh
+pip freeze > requirements.txt
+```
+
+In order to install them:
+```sh
+pip install -r requirements.txt
+```
+
+
 
