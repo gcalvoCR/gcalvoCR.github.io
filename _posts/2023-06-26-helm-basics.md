@@ -1,9 +1,9 @@
 ---
 title: Helm Basics
 author: gcalvoCR
-date: 2023-06-20 12:00:00 -0600
-categories: [concepts, Markdown]
-tags: [concepts, md] # tag names should always be lowercase
+date: 2023-06-26 12:00:00 -0600
+categories: [concepts, helm]
+tags: [concepts, helm] # tag names should always be lowercase
 ---
 
 # Helm
@@ -12,9 +12,7 @@ Helm is a tool that helps you package, deploy, and manage applications on Kubern
 
 ## Main features
 
-1. It serves as a **package manager** for Kubernetes. Helm allows users to manage and distribute applications as packages called charts. It packages YAML Files and distribute them in *public* or *private* repositories.
-
-It is the apt, yum, or homebrew for K8s.
+1. It serves as a **package manager** for Kubernetes. Helm allows users to manage and distribute applications as packages called charts. It packages YAML Files and distribute them in *public* or *private* repositories. It is the apt, yum, or homebrew for K8s.
 
 2. It serves as a **templating engine**. It uses *"Go Templates"* underneath. It allows users to define dynamic placeholders or variables within Helm charts. Go Templates provide functionality for parameterization, conditionals, loops, and variable substitution.
 
@@ -186,37 +184,39 @@ helm install <release-name> <chart-name> -f <values-file.yaml>
 helm install <release-name> <chart-name> -f <values-file1.yaml> -f <values-file2.yaml>
 ```
 
-18. Basic listing, adding, removing repo
+18. Basic listing, adding, removing repo:
 ```sh
 helm repo list
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo remove bitnami
-
 ```
 
-19. Create a namespace and install helm in that specific namespace
+19. Create a namespace and install helm in that specific namespace:
 ```sh
 kubectl create ns teamtwo
 helm install -n teamtwo mydb bitnami/mysql
 helm install --namespace teamtwo mydb bitnami/mysql
 ```
 
-20. Dry-runs
+20. Dry-runs:
 ```sh
 helm install mydb bitnami/mysql --values ./values.yaml --dry-run
 ```
 
-21. Helm template
+21. Helm template:
 ```sh
 helm template mydb bitnami/mysql --values ./values.yaml
 ```
 
-The `helm install --dry-run` command **simulates the installation process for a chart without actually installing it**. This command generates the rendered YAML manifests for a chart and prints them to the console, but it does not send the manifests to the Kubernetes API server. This is useful for verifying that the chart is rendered correctly before actually installing it. The --debug flag can also be used with helm install --dry-run to display additional information such as the values that will be used during installation.
 
-The `helm template` command, on the other hand, **generates the rendered YAML manifests for a chart without performing any installation or validation**. This command outputs the rendered YAML manifests to the console, which can be piped to a file or directly applied to a Kubernetes cluster using kubectl apply. The helm template command can be useful when you want to inspect the generated YAML or when you need to customize the generated YAML before installation.
-
-
-22. To Get manifest
+22. Get manifest:
 ```sh
 helm get manifest <releasename>
 ```
+
+
+## Important notes
+
+The `helm install --dry-run` command **simulates the installation process for a chart without actually installing it**. This command generates the rendered YAML manifests for a chart and prints them to the console, but it does not send the manifests to the Kubernetes API server. This is useful for verifying that the chart is rendered correctly before actually installing it. The --debug flag can also be used with helm install --dry-run to display additional information such as the values that will be used during installation.
+
+The `helm template` command, on the other hand, **generates the rendered YAML manifests for a chart without performing any installation or validation**. This command outputs the rendered YAML manifests to the console, which can be piped to a file or directly applied to a Kubernetes cluster using kubectl apply. The helm template command can be useful when you want to inspect the generated YAML or when you need to customize the generated YAML before installation.
