@@ -26,9 +26,9 @@ It is the apt, yum, or homebrew for K8s.
  - [Helm v3 release notes](https://helm.sh/blog/helm-3-released/)
 
 
- ## Structure
+## Structure
 
- ```scss
+```scss
  Chart Name/
 ├── Chart.yaml
 ├── values.yaml
@@ -42,7 +42,7 @@ It is the apt, yum, or homebrew for K8s.
 │   ├── ingress.yaml
 │   └── ...
 └── ...
- ```
+```
 
  ### Explanation of tree structure:
 - **-Chart Name**: The root directory of the chart, named after the application or component being packaged.
@@ -71,7 +71,7 @@ helm install <release-name> <chart-name>
 ```
 
 3. Upgrade a chart:
- ```sh
+```sh
 helm upgrade <release-name> <chart-name>
 # example passing values as arguments
 helm upgrade --namespace default mysql-release bitnami/mysql --set auth.rootPassword=$ROOT_PASSWORD
@@ -82,11 +82,10 @@ helm upgrade --namespace default mydb bitnami/mysql --values values.yaml
 helm upgrade myserver bitnami/apache --force
 # it could be dangling configmaps or secrets
 helm upgrade myserver bitnami/apache --cleanup-on-failure
-
 ```
 
 4. List installed releases:
- ```sh
+```sh
 helm list
 # Examples with specific namespaces
 helm list -n teamtwo
@@ -94,7 +93,7 @@ helm list --namespace teamtwo
 ```
 
 5. Uninstall a release:
- ```sh
+```sh
 helm uninstall <release-name>
 # When a chart is installed secrets are created to keep the history
 # Before helm 3 when uninstalling the secrets were kept, now only if we add the following arg 
@@ -104,12 +103,12 @@ kubectl get secrets
 ```
 
 6. Fetch and update the latest charts from repositories:
- ```sh
+```sh
 helm repo update
 ```
 
 7. Search for charts in repositories:
- ```sh
+```sh
 helm search repo <chart-name>
 # Example
 helm search repo mysql
@@ -118,44 +117,44 @@ helm search repo database --versions
 ```
 
 8. Inspect the content of a chart:
- ```sh
+```sh
 helm show chart <chart-name>
 ```
 
 9. Inspect the values defined for a release:
- ```sh
- helm show values <release-name>
- ```
+```sh
+helm show values <release-name>
+```
 
 10. Inspect the status of a release:
- ```sh
- helm status <release-name>
- # example
- helm status mydb
- ```
+```sh
+helm status <release-name>
+# example
+helm status mydb
+```
 
 11. Rollback a release to a previous version:
- ```sh
- helm rollback <release-name> <revision-number>
- ```
+```sh
+helm rollback <release-name> <revision-number>
+```
 
 12. Package a chart:
- ```sh
- helm package <chart-directory>
- ```
+```sh
+helm package <chart-directory>
+```
 
 13. Install a chart from a local package:
- ```sh
- helm install <release-name> ./<chart-package>.tgz
- # Example
- helm install mydb bitnami/mysql
- # Example using specific version
- helm install my-mongodb bitnami/mongodb --version 10.5.2
- # Example passing args
- helm install mydb bitnami/mysql --set auth.rootPassword
- # Example using values
- helm install --values values.yaml
- # Example to autogenerate the name, rather than providing it
+```sh
+helm install <release-name> ./<chart-package>.tgz
+# Example
+helm install mydb bitnami/mysql
+# Example using specific version
+helm install my-mongodb bitnami/mongodb --version 10.5.2
+# Example passing args
+helm install mydb bitnami/mysql --set auth.rootPassword
+# Example using values
+helm install --values values.yaml
+# Example to autogenerate the name, rather than providing it
 helm install mysrever bitnami/apache --wait 
 # Example adding --wait waits to overwrite the default 300s
 helm install mysrever bitnami/apache --wait --timeout 5m10s
@@ -168,24 +167,24 @@ helm install bitnami/apache --generate-name --name-template "myserver-{{randAlph
  ```
 
 14. Check the validity of a chart:
- ```sh
- helm lint <chart-directory>
- ```
+```sh
+helm lint <chart-directory>
+```
 
 15. Customize chart values during installation:
- ```sh
- helm install <release-name> <chart-name> --set key=value
- ```
+```sh
+helm install <release-name> <chart-name> --set key=value
+```
 
 16. Customize chart values using a values file:
- ```sh
- helm install <release-name> <chart-name> -f <values-file.yaml>
- ```
+```sh
+helm install <release-name> <chart-name> -f <values-file.yaml>
+```
 
 17. Override specific values using multiple value files:
- ```sh
- helm install <release-name> <chart-name> -f <values-file1.yaml> -f <values-file2.yaml>
- ```
+```sh
+helm install <release-name> <chart-name> -f <values-file1.yaml> -f <values-file2.yaml>
+```
 
 18. Basic listing, adding, removing repo
 ```sh
@@ -217,7 +216,7 @@ The `helm install --dry-run` command **simulates the installation process for a 
 The `helm template` command, on the other hand, **generates the rendered YAML manifests for a chart without performing any installation or validation**. This command outputs the rendered YAML manifests to the console, which can be piped to a file or directly applied to a Kubernetes cluster using kubectl apply. The helm template command can be useful when you want to inspect the generated YAML or when you need to customize the generated YAML before installation.
 
 
-23. To Get manifest
+22. To Get manifest
 ```sh
 helm get manifest <releasename>
 ```
