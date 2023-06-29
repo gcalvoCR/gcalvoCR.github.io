@@ -1,9 +1,9 @@
 ---
-title: Helm Basics
+title: OAuth
 author: gcalvoCR
-date: 2023-06-26 12:00:00 -0600
-categories: [concepts, helm]
-tags: [concepts, helm] # tag names should always be lowercase
+date: 2023-06-28 12:00:00 -0600
+categories: [concepts, oauth, ruby]
+tags: [concepts, oauth, ruby] # tag names should always be lowercase
 ---
 
 # Oauth
