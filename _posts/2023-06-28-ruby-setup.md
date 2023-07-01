@@ -63,3 +63,5 @@ ruby -v
 ## Useful links
 [Ruby on Rails](https://guides.rubyonrails.org/v5.1/getting_started.html)
 [Ruby DOCs](https://www.ruby-lang.org/en/documentation/)
+
+[GO RAILS](https://gorails.com/setup/macos/13-ventura)
