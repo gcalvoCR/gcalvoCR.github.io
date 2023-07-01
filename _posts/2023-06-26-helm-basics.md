@@ -16,13 +16,6 @@ Helm is a tool that helps you package, deploy, and manage applications on Kubern
 
 2. It serves as a **templating engine**. It uses *"Go Templates"* underneath. It allows users to define dynamic placeholders or variables within Helm charts. Go Templates provide functionality for parameterization, conditionals, loops, and variable substitution.
 
-## Useful links
-
- - [Helm HUB](https://artifacthub.io/)
- - [Helm charts GitHub Project](https://github.com/helm/charts)
- - [Installing Helm](https://helm.sh/docs/intro/install/)
- - [Helm v3 release notes](https://helm.sh/blog/helm-3-released/)
-
 
 ## Structure
 
@@ -220,3 +213,10 @@ helm get manifest <releasename>
 The `helm install --dry-run` command **simulates the installation process for a chart without actually installing it**. This command generates the rendered YAML manifests for a chart and prints them to the console, but it does not send the manifests to the Kubernetes API server. This is useful for verifying that the chart is rendered correctly before actually installing it. The --debug flag can also be used with helm install --dry-run to display additional information such as the values that will be used during installation.
 
 The `helm template` command, on the other hand, **generates the rendered YAML manifests for a chart without performing any installation or validation**. This command outputs the rendered YAML manifests to the console, which can be piped to a file or directly applied to a Kubernetes cluster using kubectl apply. The helm template command can be useful when you want to inspect the generated YAML or when you need to customize the generated YAML before installation.
+
+## Useful links
+
+ - [Helm HUB](https://artifacthub.io/)
+ - [Helm charts GitHub Project](https://github.com/helm/charts)
+ - [Installing Helm](https://helm.sh/docs/intro/install/)
+ - [Helm v3 release notes](https://helm.sh/blog/helm-3-released/)

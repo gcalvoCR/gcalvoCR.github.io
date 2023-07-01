@@ -59,3 +59,7 @@ chruby 3.1.3
 # to check version changed:
 ruby -v
 ```
+
+## Useful links
+[Ruby on Rails](https://guides.rubyonrails.org/v5.1/getting_started.html)
+[Ruby DOCs](https://www.ruby-lang.org/en/documentation/)
